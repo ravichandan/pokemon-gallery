@@ -8,6 +8,7 @@ import {TransferHttpCacheModule} from '@nguniversal/common';
 import {CustomBreakPointsProvider} from './breakpoints/custom-breakpoints';
 import {ImageService} from './services/image.service';
 import {HttpClientModule} from '@angular/common/http';
+import {MatPaginatorModule} from '@angular/material';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import {HttpClientModule} from '@angular/common/http';
             {path: 'lazy/nested', loadChildren: './lazy/lazy.module#LazyModule'}
         ]),
         HttpClientModule,
+        MatPaginatorModule,
         TransferHttpCacheModule,
     ],
     providers: [CustomBreakPointsProvider, ImageService],

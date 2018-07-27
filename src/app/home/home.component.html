@@ -4,8 +4,17 @@
 <div class="image-container-wrapper">
     <div class="image-container">
 
-        <div class="image-wrapper" *ngFor="let image of images">
+        <div class="image-wrapper" *ngFor="let image of images; let i=index">
             <img [src]="image.url" [alt]="image.name"/>
+            <div class="details">
+                <label>#<strong>{{i+1}}</strong></label>
+                <strong>Name: {{image.name}}</strong>
+            </div>
         </div>
     </div>
 </div>
+<mat-paginator [length]="length"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="pageSizeOptions"
+               (page)="pageEvent = $event">
+</mat-paginator>

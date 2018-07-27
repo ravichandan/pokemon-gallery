@@ -1,0 +1,13 @@
+$mq-responsive: true !default;
+
+$mq-breakpoints: (
+        mobile: 320px,
+        tablet: 740px,
+        desktop: 985px,
+        wide: 1300px,
+        mobileLandscape: 480px
+);
+
+$mq-static-breakpoint: desktop;
+
+//$mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);

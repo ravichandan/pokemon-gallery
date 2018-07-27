@@ -20,32 +20,40 @@ const DIST_FOLDER = join(process.cwd(), 'dist');
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./dist/server/main');
+const request = require('request');
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
 app.engine('html', ngExpressEngine({
-  bootstrap: AppServerModuleNgFactory,
-  providers: [
-    provideModuleMap(LAZY_MODULE_MAP)
-  ]
+    bootstrap: AppServerModuleNgFactory,
+    providers: [
+        provideModuleMap(LAZY_MODULE_MAP)
+    ]
 }));
 
 app.set('view engine', 'html');
 app.set('views', join(DIST_FOLDER, 'browser'));
 
 // Example Express Rest API endpoints
-// app.get('/api/**', (req, res) => { });
+app.get('/getImageData', (req, res) => {
+    request.get({url: 'http://pokeapi.co/api/v2/pokemon?limit=151'}, function (error, response, body) {
+        console.log('Body in server ' + body);
+        if (!error && response.statusCode === 200) {
+            res.json(body.results);
+        }
+    });
+});
 
 // Server static files from /browser
 app.get('*.*', express.static(join(DIST_FOLDER, 'browser'), {
-  maxAge: '1y'
+    maxAge: '1y'
 }));
 
 // All regular routes use the Universal engine
 app.get('*', (req, res) => {
-  res.render('index', { req });
+    res.render('index', {req});
 });
 
 // Start up the Node server
 app.listen(PORT, () => {
-  console.log(`Node Express server listening on http://localhost:${PORT}`);
+    console.log(`Node Express server listening on http://localhost:${PORT}`);
 });
