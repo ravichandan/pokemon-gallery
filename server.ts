@@ -11,9 +11,12 @@ import {join} from 'path';
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
+const bodyParser = require('body-parser');
 
 // Express server
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist');
@@ -36,9 +39,11 @@ app.set('views', join(DIST_FOLDER, 'browser'));
 // Example Express Rest API endpoints
 app.get('/getImageData', (req, res) => {
     request.get({url: 'http://pokeapi.co/api/v2/pokemon?limit=151'}, function (error, response, body) {
-        console.log('Body in server ' + body);
+        console.log(response.statusCode + 'Body in server ' + JSON.parse(body).results);
+        console.log(!error && response.statusCode === 200);
         if (!error && response.statusCode === 200) {
-            res.json(body.results);
+            // res.json(body.results);
+            res.send((JSON.parse(body)));
         }
     });
 });

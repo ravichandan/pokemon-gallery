@@ -1,46 +1,35 @@
-# Angular Universal Starter
+# Pokemon Gallery
+##Problem description 
+Pokemon character figure image are to be displayed in a gallery.
 
-![Angular Universal](https://angular.io/assets/images/logos/concept-icons/universal.png)
+The page should adapt to mobile, tablet and desktop
+screen widths.
+* `Mobile`: 1 Pokemon per row
+* `Tablet`: 2 Pokemon per row
+* `Desktop and larger`: 4 Pokemon per row
+ 
+A maximum of 20 Pokemon should be displayed at once. The
+page should have a Previous / Next control for
+pagination.
+Provide a search box to filter all Pokemon by name. The
+search term should be case insensitive and match any part
+of the name. For example, searching “Rat” will display
+Rattata, Raticate, Poliwrath, Dratini.
 
-A minimal Angular starter for Universal JavaScript using the [Angular CLI](https://github.com/angular/angular-cli)
-If you're looking for the Angular Universal repo go to [**angular/universal**](https://github.com/angular/universal)  
+### Prerequisites
+node ">= 8.9.0".
 
-## Getting Started
+### How to run
+* Step 1: **`npm install` or `yarn`**
+* Step 2: **`npm run build:ssr && npm run serve:ssr`**  **or**
+**`yarn build:ssr && yarn serve:ssr`** 
 
-This demo is built following the [Angular-CLI Wiki guide](https://github.com/angular/angular-cli/wiki/stories-universal-rendering)
+Above steps compiles and spins up the application on `http://localhost:4000`.
 
-We're utilizing packages from the [Angular Universal @nguniversal](https://github.com/angular/universal) repo, such as [ng-module-map-ngfactory-loader](https://github.com/angular/universal/modules/module-map-ngfactory-loader) to enable Lazy Loading.
+
+### Testing
+Spec classes have been added for all services and components. TestCases for node middleware have been added.  
 
 ---
-
-### Build Time Prerendering Vs. Server Side Rendering(ssr)
-This repo demonstrates the use of 2 different forms of Server Side Rendering.
-
-**Prerender** 
-* Happens at build time
-* Renders your application and replaces the dist index.html with a version rendered at the route `/`.
-
-**Server-Side Rendering(ssr)**
-* Happens at runtime
-* Uses `ngExpressEngine` to render your application on the fly at the requested url.
-
----
-
-### Installation
-* `npm install` or `yarn`
-
-### Development (Client-side only rendering)
-* run `npm run start` which will start `ng serve`
-
-### Production (also for testing SSR/Pre-rendering locally)
-**`npm run build:ssr && npm run serve:ssr`** - Compiles your application and spins up a Node Express to serve your Universal application on `http://localhost:4000`.
-
-**`npm run build:prerender && npm run serve:prerender`** - Compiles your application and prerenders your applications files, spinning up a demo http-server so you can view it on `http://localhost:8080`
-**Note**: To deploy your static site to a static hosting platform you will have to deploy the `dist/browser` folder, rather than the usual `dist`
-
-
-## Universal "Gotchas"
-Moved to [/angular/universal/blob/master/docs/gotchas.md](https://github.com/angular/universal/blob/master/docs/gotchas.md)
-
-# License
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE)
+### Developer
+Ravi Chandan Sithiraju (s.ravichandan@gmail.com)

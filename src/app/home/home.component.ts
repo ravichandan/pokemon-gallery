@@ -8,19 +8,20 @@ import {ImageService} from '../services/image.service';
     styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-    public message: string;
+    // public message: string;
     public images: PgImage[];
-    length = 100;
-    pageSize = 20;
+    // length = 100;
+    // pageSize = 20;
     p = 1;
     queryString: string;
+
     // pageSizeOptions: number[] = [5, 10, 25, 100];
     constructor(private imageService: ImageService) {
         this.images = [];
     }
 
     ngOnInit() {
-        this.message = 'Hello';
+        // this.message = 'Hello';
         this.imageService.getImageData().subscribe((data: PgImage[]) => {
             this.images.push(...data);
         });
@@ -32,5 +33,6 @@ export class HomeComponent implements OnInit {
 
     onPageChange(event) {
         console.log(event);
+        this.p = event;
     }
 }

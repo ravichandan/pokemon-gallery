@@ -1,24 +1,36 @@
 <!--<h3>{{ // message }}</h3>-->
 <!--<div>{{ message }}</div>-->
 
-<input [(ngModel)]="queryString">
 <div class="image-container-wrapper">
+    <!--<input [(ngModel)]="queryString" type="text" name="search" class="search-box">-->
+    <mat-form-field class="example-form-field" appearance="outline" class="search-box">
+        <input matInput type="text" placeholder="Search" [(ngModel)]="queryString">
+        <mat-hint>Search for a hero</mat-hint>
+    </mat-form-field>
+
+    <!--<mat-form-field appearance="outline">-->
+    <!--<mat-label>Outline form field</mat-label>-->
+    <!--<input matInput placeholder="Placeholder">-->
+    <!--<mat-hint>Hint</mat-hint>-->
+    <!--</mat-form-field>-->
+
     <div class="image-container">
 
         <div class="image-wrapper"
-             *ngFor="let image of images | filter: queryString | paginate: { itemsPerPage: 10, currentPage: p,totalItems: 151 }; let i=index">
-            <img [src]="image.url" [alt]="image.name"/>
+             *ngFor="let image of images | filter: queryString | paginate: { itemsPerPage: 20, currentPage: p,totalItems: 151 }">
+            <img [src]="'../../assets/images/'+image.id+'.png'" [alt]="image.name"/>
             <div class="details">
-                <label>#<strong>{{i+1}}</strong></label>
-                <strong>Name: {{image.name}}</strong>
+                <label>#<strong>{{image.id}}</strong></label>
+                <strong>{{image.name}}</strong>
             </div>
         </div>
     </div>
+    <pagination-controls class="pagination-ctrl" (pageChange)="onPageChange($event)"></pagination-controls>
 </div>
-<mat-paginator [length]="length"
-               [pageSize]="pageSize"
+<!--<mat-paginator [length]="length"-->
+               <!--[pageSize]="pageSize"-->
+<!---->
+               <!--(page)="onPageChange($event)">-->
+<!--</mat-paginator>-->
 
-               (page)="onPageChange($event)">
-</mat-paginator>
 
-<pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>

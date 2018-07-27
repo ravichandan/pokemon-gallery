@@ -8,10 +8,11 @@ import {TransferHttpCacheModule} from '@nguniversal/common';
 import {CustomBreakPointsProvider} from './breakpoints/custom-breakpoints';
 import {ImageService} from './services/image.service';
 import {HttpClientModule} from '@angular/common/http';
-import {MatPaginatorModule} from '@angular/material';
+import {MatFormFieldModule, MatInputModule, MatPaginatorModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {FormsModule} from '@angular/forms';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
 
 @NgModule({
     declarations: [
@@ -29,6 +30,9 @@ import {FormsModule} from '@angular/forms';
         FormsModule,
         HttpClientModule,
         MatPaginatorModule,
+        MatFormFieldModule,
+        MatInputModule,
+        Ng2SearchPipeModule,
         NgxPaginationModule,
         TransferHttpCacheModule,
     ],
