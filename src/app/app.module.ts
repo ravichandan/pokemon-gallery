@@ -5,6 +5,7 @@ import {RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import {TransferHttpCacheModule} from '@nguniversal/common';
+import {CustomBreakPointsProvider} from './services/custom-breakpoints';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import {TransferHttpCacheModule} from '@nguniversal/common';
     ]),
     TransferHttpCacheModule,
   ],
-  providers: [],
+  providers: [CustomBreakPointsProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

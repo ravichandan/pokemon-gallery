@@ -1,0 +1,7 @@
+@import "~sass-mq";
+
+h2 {
+  @include mq($until: tablet) {
+    display: none;
+  }
+}
