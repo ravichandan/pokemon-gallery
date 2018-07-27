@@ -20,7 +20,7 @@
   }
   @include mq(tablet) {
     width: 60em;
-    justify-content: space-evenly;
+    //justify-content: space-evenly;
   }
 }
 
@@ -56,6 +56,9 @@
   @include mq(mobile) {
     padding-left: 1em;
   }
+  @include mq(tablet) {
+    padding-left: 0;
+  }
 }
 
 .search-box {
@@ -64,4 +67,5 @@
 }
 .pagination-ctrl{
   align-self: center;
+  margin-bottom: 2em;
 }

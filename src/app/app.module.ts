@@ -13,6 +13,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {FormsModule} from '@angular/forms';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import {NgCircleProgressModule} from 'ng-circle-progress';
 
 @NgModule({
     declarations: [
@@ -24,9 +25,17 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
         BrowserAnimationsModule,
         RouterModule.forRoot([
             {path: '', component: HomeComponent, pathMatch: 'full'},
-            {path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule'},
-            {path: 'lazy/nested', loadChildren: './lazy/lazy.module#LazyModule'}
         ]),
+        // Specify ng-circle-progress as an import
+        NgCircleProgressModule.forRoot({
+            // set defaults here
+            radius: 100,
+            outerStrokeWidth: 16,
+            innerStrokeWidth: 8,
+            outerStrokeColor: '#78C000',
+            innerStrokeColor: '#C7E596',
+            animationDuration: 300
+        }),
         FormsModule,
         HttpClientModule,
         MatPaginatorModule,
