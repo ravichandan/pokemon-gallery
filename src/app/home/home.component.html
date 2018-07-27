@@ -16,8 +16,10 @@
                 [outerStrokeColor]="'#78C000'"
                 [innerStrokeColor]="'#C7E596'"
                 [animation]="true"
-                [animationDuration]="300"
-        ></circle-progress></div>
+                [animationDuration]="15000"
+                [showSubtitle]="true"
+                subtitle="Fetching data from server"
+        >Fetching data</circle-progress></div>
     <div class="image-container" *ngIf="!loading">
 
         <div class="image-wrapper"
