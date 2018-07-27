@@ -1,4 +1,3 @@
-import {it, expect, describe} from '@angular/core/testing/src/testing_internal';
 import {AppComponent} from './app.component';
 describe('AppComponent', () => {
 
