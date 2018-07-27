@@ -9,6 +9,9 @@ import {CustomBreakPointsProvider} from './breakpoints/custom-breakpoints';
 import {ImageService} from './services/image.service';
 import {HttpClientModule} from '@angular/common/http';
 import {MatPaginatorModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -17,13 +20,16 @@ import {MatPaginatorModule} from '@angular/material';
     ],
     imports: [
         BrowserModule.withServerTransition({appId: 'my-app'}),
+        BrowserAnimationsModule,
         RouterModule.forRoot([
             {path: '', component: HomeComponent, pathMatch: 'full'},
             {path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule'},
             {path: 'lazy/nested', loadChildren: './lazy/lazy.module#LazyModule'}
         ]),
+        FormsModule,
         HttpClientModule,
         MatPaginatorModule,
+        NgxPaginationModule,
         TransferHttpCacheModule,
     ],
     providers: [CustomBreakPointsProvider, ImageService],

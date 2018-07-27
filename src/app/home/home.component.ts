@@ -10,7 +10,11 @@ import {ImageService} from '../services/image.service';
 export class HomeComponent implements OnInit {
     public message: string;
     public images: PgImage[];
-
+    length = 100;
+    pageSize = 20;
+    p = 1;
+    queryString: string;
+    // pageSizeOptions: number[] = [5, 10, 25, 100];
     constructor(private imageService: ImageService) {
         this.images = [];
     }
@@ -24,5 +28,9 @@ export class HomeComponent implements OnInit {
         // for (const image of this.images) {
         //     console.log(image.url + '==' + image.name);
         // }
+    }
+
+    onPageChange(event) {
+        console.log(event);
     }
 }
